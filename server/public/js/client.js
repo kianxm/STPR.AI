@@ -38,13 +38,28 @@ async function generateResponseRequest(prompt) {
 
         const responseData = data.data;
 
+        // Displays data
+        const stepsText = regex(responseData);
         document.querySelector('#response').textContent = responseData;
+
+        // Show steps
+        const stepsTextArea = document.getElementById('stepsTextArea');
+        stepsTextArea.value = stepsText
 
         removeSpinner();
 
     } catch (error) {
         document.querySelector('.msg').textContent = error;
     }
+}
+
+function regex(answer) {
+    const pattern = /\d+\.\s+/;
+    const stepArray = answer.split(pattern).filter(Boolean);
+
+    const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
+
+    return stepArray;
 }
 
 function showSpinner() {
