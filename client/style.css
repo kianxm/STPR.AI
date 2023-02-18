@@ -5,10 +5,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Alegreya Sans", sans-serif;
+  --secondary: #828282;
+  --backgroudColor: #E7E7E7;
+
 }
 
 body {
-  background: #E7E7E7;
+  background: var(--backgroudColor);
   width: 100vw;
   height: 100vh;
 }
@@ -24,10 +27,78 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 0.5;
+  margin-left: 3rem;
+  height: 50%;
 }
 
 figure {
-  flex-grow: 2;
+  flex-grow: 3;
 }
 
+#enter-here-span  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#enter-here-span legend {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+input[type="text"]
+{
+  border-width: 0;
+  width: 25rem;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  filter: drop-shadow(0 0 0.25rem #999);
+}
+input[type="text"]:focus{
+  border-width: 0;
+  outline: none;
+}
+
+span svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+fieldset {
+  border-width: 0;
+  margin: 1rem;
+}
+
+#device-selection legend {
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: var(--secondary);
+
+}
+
+#radio-span {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#radio-span div {
+  position: relative;
+}
+
+#radio-span div input {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  position: absolute;
+}
+#radio-span div input:focus + #radio-span div{
+  background-color: #828282;
+}
