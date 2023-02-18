@@ -8,14 +8,30 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="app">
-      <div id="chat-container"></div>
-
+    <main id="app">
       <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Enter here!"></textarea>
-        <button type="submit"><img src="assets/send.svg" width="100"/></button>
+        <h1>How can I help you today?</h1>
+        <fieldset id="prompt-section">
+          <span>
+            <legend>Enter your prompt here</legend>
+            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(-45)matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7L12 17L16 13M10 15L8 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+          </span>
+          <input name="prompt" type="text" placeholder="Ask a question here!"></input>
+        </fieldset>
+        <fieldset id="device-selection">
+          <legend>Choose a device</legend>
+          <input type="radio" id="desktop" name="which-device" value="Desktop">
+          <label for="desktop">Desktop</label><br>
+          <input type="radio" id="laptop" name="which-device" value="Laptop">
+          <label for="laptop">Laptop</label><br>
+          <input type="radio" id="iphone" name="which-device" value="iPhone">
+          <label for="iphone">iPhone</label>
+          <input type="radio" id="unkown" name="which-device" value="Unknown">
+          <label for="unkown">Unknown</label>
+        </fieldset>
       </form>
-    </div>
+      <figure></figure>
+    </main>
     <script type="module" src="/script.js"></script>
   </body>
 </html>
