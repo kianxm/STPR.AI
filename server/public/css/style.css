@@ -219,7 +219,8 @@ form button:hover {
   height: 100%;
   /* background-color: rgba(0, 0, 0, 0.5); */
   display: none;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
   z-index: 999;
 }
