@@ -21,10 +21,10 @@ buttons.forEach(button => {
         });
         button.classList.add("selected");
         
-        const osRow = document.getElementById("os-row");
+        // const osRow = document.getElementById("os-row");
         
         if (deviceChosen === "Desktop" || deviceChosen === "Laptop") {
-            platformLabel.classList.remove('hiddenNoVis')
+            platformLabel.classList.remove('hiddenNoVis');
             mobileRow.classList.remove("hiddenNoVis");
             computerRow.classList.remove("hiddenNoVis");
             mobileRow.classList.add("hidden");
@@ -120,16 +120,17 @@ async function generateResponseRequest(prompt, device, osChosen) {
 function displaySteps(answer) {
     //regex
     const pattern = /\d+\.\s+/;
-    const stepArray = answer.split(pattern).filter(Boolean);
+    const stepArray = answer.split(pattern).filter(Boolean).map(str => str.replace(/\n/g, ""));
     // console.log(stepArray);
 
     // const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
 
     const stepsList = document.getElementById("stepsList");
+    stepsList.textContent = "";
 
     //creates the ordered list 
     for (let i = 0; i < stepArray.length; i++) {
-        if (stepArray[i] !== "\n\n") {
+        if (stepArray[i] !== "") {
             let listItem = document.createElement("li");
             listItem.innerText = stepArray[i];
             stepsList.appendChild(listItem);
