@@ -82,7 +82,6 @@ function handleSubmit(e) {
 
 async function generateResponseRequest(prompt, device, osChosen) {
     try {
-        // showSpinner();
         showLoadingScreen();
 
         const response = await fetch('/openai/generateResponse', {
@@ -98,7 +97,6 @@ async function generateResponseRequest(prompt, device, osChosen) {
         });
 
         if(!response.ok) {
-            // removeSpinner();
             hideLoadingScreen();
             throw new Error('That prompt could not be generated.');
         }
@@ -109,7 +107,6 @@ async function generateResponseRequest(prompt, device, osChosen) {
         // Displays old data
         // document.querySelector('#response').textContent = responseData;
 
-        // removeSpinner();
         hideLoadingScreen();
 
         // Displays data
@@ -151,15 +148,6 @@ function loader(element) {
             element.textContent = "Generating response.";
         }
     }, 300)
-}
-
-
-function showSpinner() {
-    document.querySelector('.spinner').classList.add('show');
-}
-
-function removeSpinner() {
-    document.querySelector('.spinner').classList.remove('show');
 }
 
 function showLoadingScreen() {
