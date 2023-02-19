@@ -1,3 +1,5 @@
+// const { deviceChosen } = require("../public/js/client");
+
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
@@ -6,13 +8,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateResponse = async (req, res) => {
-    const { prompt } = req.body;
+    const { prompt, device } = req.body;
 
     try {
         const response = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: prompt,
-            temperature: 0,
+            prompt: `Provide a list of steps for: ${prompt} for ${device}`, // Add device here
+            temperature: 0, 
             max_tokens: 3000,
             top_p: 1.0,
             frequency_penalty: 0.0,

@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/spinner.css" />
 
     <script src="js/client.js" defer></script>
-    <title>STPR.ai</title>
+    <title>stpr.ai</title>
   </head>
   <body>
     <header>
       <div class="navbar">
         <div class="logo">
-          <h2>STPR.ai</h2>
+          <h2>stpr.ai</h2>
         </div>
       </div>
     </header>
@@ -31,11 +31,17 @@
         </form>
       </section>
 
+      <!-- new -->
+      <button id="desktop-button" class="device-button">Desktop</button>
+      <button id="laptop-button" class="device-button">Laptop</button>
+      <button id="phone-button" class="device-button">Phone</button>
+      <button id="other-button" class="device-button">Other</button>
+
       <section class="response">
         <div class="response-container">
           <h2 class="msg"></h2>
-          <h2 id="response"></h1>
-          <textarea id="stepsTextArea" rows="10"></textarea>
+          <h3 id="response"></h1>
+          <!-- <textarea id="stepsTextArea" rows="10"></textarea> -->
         </div>
       </section>
     </main>

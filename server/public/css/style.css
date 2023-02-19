@@ -98,6 +98,20 @@ form button:hover {
   transform: scale(1.1);
 }
 
+.device-button {
+  padding: 10px;
+  margin: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.device-button.selected {
+  background-color: #143d26;
+}
+
 /* Image */
 
 .image {

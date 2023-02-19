@@ -1,3 +1,23 @@
+const desktopButton = document.getElementById("desktop-button");
+const laptopButton = document.getElementById("laptop-button");
+const phoneButton = document.getElementById("phone-button");
+const otherButton = document.getElementById("other-button");
+
+let deviceChosen
+
+const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
+
+buttons.forEach(button => {
+  button.addEventListener("click", function() {
+    deviceChosen = button.textContent;
+    console.log(`${deviceChosen} button pressed`);
+    buttons.forEach(button => {
+      button.classList.remove("selected");
+    });
+    button.classList.add("selected");
+  });
+});
+
 function handleSubmit(e) {
     e.preventDefault();
 
@@ -11,10 +31,10 @@ function handleSubmit(e) {
         return;
     }
 
-    generateResponseRequest(prompt);
+    generateResponseRequest(prompt, deviceChosen);
 }
 
-async function generateResponseRequest(prompt) {
+async function generateResponseRequest(prompt, device) {
     try {
         showSpinner();
 
@@ -24,7 +44,8 @@ async function generateResponseRequest(prompt) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify( {
-                prompt
+                prompt,
+                device
             })
         });
 
@@ -39,12 +60,13 @@ async function generateResponseRequest(prompt) {
         const responseData = data.data;
 
         // Displays data
-        const stepsText = regex(responseData);
         document.querySelector('#response').textContent = responseData;
 
-        // Show steps
-        const stepsTextArea = document.getElementById('stepsTextArea');
-        stepsTextArea.value = stepsText
+        // Regex and show steps
+
+        // const stepsText = regex(responseData);
+        // const stepsTextArea = document.getElementById('stepsTextArea');
+        // stepsTextArea.value = stepsText
 
         removeSpinner();
 
@@ -59,7 +81,7 @@ function regex(answer) {
 
     const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
 
-    return stepArray;
+    return output;
 }
 
 function showSpinner() {
@@ -71,3 +93,4 @@ function removeSpinner() {
 }
 
 document.querySelector('#prompt-form').addEventListener('submit', handleSubmit);
+
