@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/spinner.css" />
+    <!-- <link rel="stylesheet" href="css/spinner.css" /> -->
 
     <script src="js/client.js" defer></script>
     <title>stpr.ai</title>
@@ -25,7 +25,8 @@
               <button type="submit" class="btn">Generate</button>
             </form>
           </section>
-    
+          <label id="select-device-label">Plase select your device:</label>
+          
           <!-- rows of devices -->
           <div id="device-row">
             <button id="desktop-button" value="Desktop" class="device-button">
@@ -41,21 +42,27 @@
               <img src="./assets/other.png" width="40">
             </button>
           </div>
+
+          <label id="select-plat-label" class="hiddenNoVis">Plase select your platform:</label>
           
           <section id="os-row-section">
-            <div id="os-row" class="hidden">
-              <button id="windows-button" value="Windows" class="os-button">
-                <img src="./assets/windows.png" width="40">
-              </button>
-              <button id="mac-button" value="macOS" class="os-button">
-                <img src="./assets/ios.png" width="40">
-              </button>
-              <button id="ios-button" value="iOS" class="os-button">
-                <img src="./assets/ios.png" width="40">
-              </button>
-              <button id="android-button" value="Android" class="os-button">
-                <img src="./assets/android.png" width="40">
-              </button>
+            <div id="os-row">
+              <div id="computer-row" class="hidden">
+                <button id="windows-button" value="Windows" class="os-button">
+                  <img src="./assets/windows.png" width="40">
+                </button>
+                <button id="mac-button" value="macOS" class="os-button">
+                  <img src="./assets/ios.png" width="40">
+                </button>
+              </div>
+              <div id="mobile-row" class="hidden">
+                <button id="ios-button" value="iOS" class="os-button">
+                  <img src="./assets/ios.png" width="40">
+                </button>
+                <button id="android-button" value="Android" class="os-button">
+                  <img src="./assets/android.png" width="40">
+                </button>
+              </div>
             </div>
           </section>
           
@@ -89,6 +96,6 @@
       <h2 id="generatingResponse">Generating response...</h2>
     </div>
 
-    <div class="spinner"></div>
+    <!-- <div class="spinner"></div> -->
   </body>
 </html>

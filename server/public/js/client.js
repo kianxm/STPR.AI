@@ -6,6 +6,9 @@ const desktopButton = document.getElementById("desktop-button");
 const laptopButton = document.getElementById("laptop-button");
 const phoneButton = document.getElementById("phone-button");
 const otherButton = document.getElementById("other-button");
+const mobileRow = document.getElementById('mobile-row');
+const computerRow = document.getElementById('computer-row');
+const platformLabel = document.getElementById('select-plat-label');
 
 const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 
@@ -21,19 +24,22 @@ buttons.forEach(button => {
         const osRow = document.getElementById("os-row");
         
         if (deviceChosen === "Desktop" || deviceChosen === "Laptop") {
-            osRow.classList.remove("hidden");
-            document.getElementById("ios-button").classList.add("hidden");
-            document.getElementById("android-button").classList.add("hidden");
-            document.getElementById("windows-button").classList.remove("hidden");
-            document.getElementById("mac-button").classList.remove("hidden");
+            platformLabel.classList.remove('hiddenNoVis')
+            mobileRow.classList.remove("hiddenNoVis");
+            computerRow.classList.remove("hiddenNoVis");
+            mobileRow.classList.add("hidden");
+            computerRow.classList.remove("hidden");
         } else if (deviceChosen === "Phone") {
-            osRow.classList.remove("hidden");
-            document.getElementById("windows-button").classList.add("hidden");
-            document.getElementById("mac-button").classList.add("hidden");
-            document.getElementById("ios-button").classList.remove("hidden");
-            document.getElementById("android-button").classList.remove("hidden");
+            platformLabel.classList.remove('hiddenNoVis')
+            mobileRow.classList.remove("hiddenNoVis");
+            computerRow.classList.remove("hiddenNoVis");
+            computerRow.classList.add("hidden");
+            mobileRow.classList.remove("hidden");
         } else if (deviceChosen === "Other") {
-            osRow.classList.add("hidden");
+            platformLabel.classList.add('hiddenNoVis')
+            computerRow.classList.add("hiddenNoVis");
+            mobileRow.classList.add("hiddenNoVis");
+
             deviceChosen = "";
             osChosen = "";
         }
