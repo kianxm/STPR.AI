@@ -273,7 +273,9 @@ li:before {
   border: 0.2rem solid var(--listNumber);
 }
 
-
+#stepList {
+  margin: 0;
+}
 
 /* Home animation */
 #home-animation {

@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 
 const generateResponse = async (req, res) => {
     const { prompt, device, osChosen } = req.body;
-    console.log(prompt, device, osChosen);
+    // console.log(prompt, device, osChosen);
 
     try {
         const response = await openai.createCompletion({

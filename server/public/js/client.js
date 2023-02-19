@@ -15,7 +15,7 @@ const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         deviceChosen = button.value;
-        console.log(`${deviceChosen} button pressed`);
+        // console.log(`${deviceChosen} button pressed`);
         buttons.forEach(button => {
             button.classList.remove("selected");
         });
@@ -56,7 +56,7 @@ const osButtons = [windowsButton, macButton, iosButton, androidButton];
 osButtons.forEach(button => {
     button.addEventListener("click", function() {
         osChosen = button.value;
-        console.log(`${osChosen} button pressed`);
+        // console.log(`${osChosen} button pressed`);
         osButtons.forEach(button => {
             button.classList.remove("selected");
         });
