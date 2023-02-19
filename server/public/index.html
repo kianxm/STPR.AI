@@ -11,20 +11,16 @@
     <title>stpr.ai</title>
   </head>
   <body>
-    <header>
-      <div class="navbar">
-        <div class="logo">
-          <h2>stpr.ai</h2>
-        </div>
-      </div>
-    </header>
+    <div id="loading-screen">
+      <h2>Generating response...</h2>
+    </div>
 
     <main>
       <section class="showcase">
         <form id="prompt-form">
           <h1>What can I help you with today?</h1>
           <div class="form-control">
-            <input type="text" id="prompt" placeholder="Enter Text" />
+            <input type="text" id="prompt" placeholder="Enter Text" autocomplete="off"/>
           </div>
           <!-- size -->
           <button type="submit" class="btn">Generate</button>
@@ -32,16 +28,25 @@
       </section>
 
       <!-- new -->
-      <button id="desktop-button" class="device-button">Desktop</button>
-      <button id="laptop-button" class="device-button">Laptop</button>
-      <button id="phone-button" class="device-button">Phone</button>
-      <button id="other-button" class="device-button">Other</button>
+      <div id="device-row">
+        <button id="desktop-button" class="device-button">Desktop</button>
+        <button id="laptop-button" class="device-button">Laptop</button>
+        <button id="phone-button" class="device-button">Phone</button>
+        <button id="other-button" class="device-button">Other</button>
+      </div>
+      
+      <div id="os-row" class="hidden">
+        <button id="windows-button" class="os-button">Windows</button>
+        <button id="mac-button" class="os-button">Mac</button>
+        <button id="ios-button" class="os-button">iOS</button>
+        <button id="android-button" class="os-button">Android</button>
+      </div>
 
+      <!-- ai response -->
       <section class="response">
         <div class="response-container">
           <h2 class="msg"></h2>
           <h3 id="response"></h1>
-          <!-- <textarea id="stepsTextArea" rows="10"></textarea> -->
         </div>
       </section>
     </main>

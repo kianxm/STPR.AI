@@ -4,18 +4,56 @@ const phoneButton = document.getElementById("phone-button");
 const otherButton = document.getElementById("other-button");
 
 let deviceChosen
+let osChosen
 
 const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 
 buttons.forEach(button => {
-  button.addEventListener("click", function() {
-    deviceChosen = button.textContent;
-    console.log(`${deviceChosen} button pressed`);
-    buttons.forEach(button => {
-      button.classList.remove("selected");
+    button.addEventListener("click", function() {
+        deviceChosen = button.textContent;
+        console.log(`${deviceChosen} button pressed`);
+        buttons.forEach(button => {
+            button.classList.remove("selected");
+        });
+        button.classList.add("selected");
+        
+        const osRow = document.getElementById("os-row");
+        
+        if (deviceChosen === "Desktop" || deviceChosen === "Laptop") {
+            osRow.classList.remove("hidden");
+            document.getElementById("ios-button").classList.add("hidden");
+            document.getElementById("android-button").classList.add("hidden");
+            document.getElementById("windows-button").classList.remove("hidden");
+            document.getElementById("mac-button").classList.remove("hidden");
+        } else if (deviceChosen === "Phone") {
+            osRow.classList.remove("hidden");
+            document.getElementById("windows-button").classList.add("hidden");
+            document.getElementById("mac-button").classList.add("hidden");
+            document.getElementById("ios-button").classList.remove("hidden");
+            document.getElementById("android-button").classList.remove("hidden");
+        } else if (deviceChosen === "Other") {
+            osRow.classList.add("hidden");
+            deviceChosen = "";
+        }
     });
-    button.classList.add("selected");
-  });
+});
+  
+const windowsButton = document.getElementById("windows-button");
+const macButton = document.getElementById("mac-button");
+const iosButton = document.getElementById("ios-button");
+const androidButton = document.getElementById("android-button");
+
+const osButtons = [windowsButton, macButton, phoneButton, androidButton];
+
+osButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        osChosen = button.textContent;
+        console.log(`${osChosen} button pressed`);
+        osButtons.forEach(button => {
+            button.classList.remove("selected");
+        });
+        button.classList.add("selected");
+    });
 });
 
 function handleSubmit(e) {
@@ -31,12 +69,13 @@ function handleSubmit(e) {
         return;
     }
 
-    generateResponseRequest(prompt, deviceChosen);
+    generateResponseRequest(prompt, deviceChosen, osChosen);
 }
 
-async function generateResponseRequest(prompt, device) {
+async function generateResponseRequest(prompt, device, osChosen) {
     try {
-        showSpinner();
+        // showSpinner();
+        showLoadingScreen();
 
         const response = await fetch('/openai/generateResponse', {
             method: 'POST',
@@ -45,18 +84,18 @@ async function generateResponseRequest(prompt, device) {
             },
             body: JSON.stringify( {
                 prompt,
-                device
+                device,
+                osChosen
             })
         });
 
         if(!response.ok) {
-            removeSpinner();
+            // removeSpinner();
+            hideLoadingScreen();
             throw new Error('That prompt could not be generated.');
         }
 
         const data = await response.json();
-        // console.log(data);
-
         const responseData = data.data;
 
         // Displays data
@@ -68,7 +107,8 @@ async function generateResponseRequest(prompt, device) {
         // const stepsTextArea = document.getElementById('stepsTextArea');
         // stepsTextArea.value = stepsText
 
-        removeSpinner();
+        // removeSpinner();
+        hideLoadingScreen();
 
     } catch (error) {
         document.querySelector('.msg').textContent = error;
@@ -90,6 +130,22 @@ function showSpinner() {
 
 function removeSpinner() {
     document.querySelector('.spinner').classList.remove('show');
+}
+
+function showLoadingScreen() {
+    document.querySelector('#loading-screen').classList.add('show');
+    document.querySelector('main').classList.add('hidden');
+}
+
+function hideLoadingScreen() {
+    document.querySelector('#loading-screen').classList.remove('show');
+    document.querySelector('main').classList.remove('hidden');
+}
+
+// Called when the response is recieved -> shows a list of stuff
+function showResponseScreen() {
+    document.querySelector('main').classList.add('hidden');
+
 }
 
 document.querySelector('#prompt-form').addEventListener('submit', handleSubmit);

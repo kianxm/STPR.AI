@@ -8,12 +8,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateResponse = async (req, res) => {
-    const { prompt, device } = req.body;
+    const { prompt, device, osChosen } = req.body;
 
     try {
         const response = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: `Provide a list of steps for: ${prompt} for ${device}`, // Add device here
+            prompt: `Provide a list of steps for: ${prompt} for ${device} ${osChosen}`, // Add device here
             temperature: 0, 
             max_tokens: 3000,
             top_p: 1.0,
