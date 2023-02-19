@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="css/style.css" />
 
     <script src="js/client.js" defer></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <title>stpr.ai</title>
+    <title>STPR.AI - Tech simplified.</title>
   </head>
   <body>
     <!-- main page  -->
@@ -18,13 +19,17 @@
         <button id="increase-font">+</button>
         <button id="decrease-font">-</button>
       </div>
-      
+
+      <div class="appname">
+        <img src="assets/globe.png" width="20">
+        STPR.AI</div>
+
       <div class = "container">
         <div class = "left-column">
           <section class="showcase">
             <form id="prompt-form">
               <h1>What can I help you with today?</h1>
-              <h2>Enter your prompt here</h2>
+              <h2>Enter your prompt here:</h2>
               <input type="text" id="prompt" placeholder="Ask me anything!" autocomplete="off"/>
               <!-- size -->
               <button type="submit" class="btn">Generate</button>

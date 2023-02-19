@@ -261,7 +261,8 @@ ol {
 
 li {
   position: relative;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 18px;
   counter-increment: item;
   margin: 1.5rem 0.5rem;
   padding: 1rem;
@@ -314,20 +315,34 @@ li:before {
 
 .font-size {
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   z-index: 9999;
 }
 
 .font-size button {
-  font-size: 36px;
-  padding: 4px 8px;
-  border: none;
-  background: transparent;
-  color: #333;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  text-align: center;
   cursor: pointer;
+  margin: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 15px;
 }
 
 .font-size button:hover {
-  background-color: #eee;
+  background-color: #aaaaaa;
+}
+
+.appname {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: 500;
 }

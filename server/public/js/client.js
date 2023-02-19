@@ -71,6 +71,7 @@ var selectDeviceFontSize = 20;
 var selectOSFontSize = 20;
 var inputFontSize = 16;
 var inputPlaceholderSize = 16;
+// var stepsFontSize = 18;
 
 document.getElementById('increase-font').addEventListener('click', function() {
     h1FontSize += 2;
@@ -80,6 +81,7 @@ document.getElementById('increase-font').addEventListener('click', function() {
     selectOSFontSize += 1;
     inputFontSize += 2;
     inputPlaceholderSize += 2;
+    // stepsFontSize += 2;
     document.querySelector('.showcase h1').style.fontSize = h1FontSize + 'px';
     document.querySelector('.showcase h2').style.fontSize = h2FontSize + 'px';
     document.querySelectorAll('form button').forEach(function(button) {
@@ -89,6 +91,9 @@ document.getElementById('increase-font').addEventListener('click', function() {
     document.querySelector('#select-plat-label').style.fontSize = selectOSFontSize + 'px';
     document.querySelector('#prompt').style.fontSize = inputFontSize + 'px';
     document.querySelector('#prompt::placeholder').style.fontSize = inputPlaceholderSize + 'px';
+    // document.querySelectorAll('li').forEach(function(li) {
+    //     li.style.fontSize = stepsFontSize + 'px';
+    // });
 });
 
 document.getElementById('decrease-font').addEventListener('click', function() {
