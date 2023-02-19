@@ -70,7 +70,7 @@ function handleSubmit(e) {
     // document.querySelector('.msg').textContent = '';
     // document.querySelector('#response').textContent = '';
 
-    const prompt = document.querySelector('#prompt').value;
+    const prompt = sanitizeInput(document.querySelector('#prompt').value);
 
     if(prompt === '') {
         alert('Please enter in a question');

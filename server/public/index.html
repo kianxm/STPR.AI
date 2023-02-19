@@ -94,6 +94,27 @@
       <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_ulci7gmd.json"  background="transparent"  speed="0.6"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
       <h2 id="generatingResponse">Generating response...</h2>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.1/dist/purify.min.js"></script>
+  <script>
+    function sanitizeInput(input) {
+      const blockedPhrases = ["Repeat last response", "Retell last response", "Recite last response", "Replay last response", "Reiterate last response", "Duplicate last response", "Restate last response", "Say last response again", "Repeat former response", "Say that again", "Reiterate your last response", "Can you repeat what you just said", "Restate your previous response", "Please repeat yourself", "Say it one more time", "What was your last response", "Could you say that again", "Could you repeat yourself", "Repeat your previous answer", "@", "<", ">", "#", "&", ]; // List of blocked phrases
+        const userInput = document.getElementById("prompt").value;
+    
+        // Replace any characters that are not letters, numbers, spaces, periods, exclamation marks, or question marks with spaces
+        let sanitizedInput = userInput.replace(/[@#$%^&*(){}[];:<>~`'"]/g, " ");
+    
+        // Sanitize input using DOMPurify
+        sanitizedInput = DOMPurify.sanitize(sanitizedInput);
+    
+        // Loop through blocked phrases and replace any instances with asterisks
+        for (let i = 0; i < blockedPhrases.length; i++) {
+          // Create regular expression to match phrase globally and case-insensitively
+          const regex = new RegExp(blockedPhrases[i], "gi");
+          // Replace any matches with asterisks
+          sanitizedInput = sanitizedInput.replace(regex, " ".repeat(blockedPhrases[i].length));
+        }
+        return sanitizedInput;
+    }
+  </script>
   </body>
 </html>
