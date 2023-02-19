@@ -5,7 +5,8 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 200px;
+  /* justify-content: center; */
   align-items: left;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
@@ -15,10 +16,24 @@ body {
   overflow: hidden;
 }
 
-main {
+/* main {
   width: 50%;
   padding: 0 20px;
   padding-left: 200px;
+} */
+
+.container {
+  display: flex;
+}
+
+.left-column {
+  width: 70%;
+  padding-left: 200px;
+}
+
+.right-column {
+  width: 30%;
+  padding-right: 200px;
 }
 
 /* Style the search bar */
@@ -110,13 +125,18 @@ main {
 
 .showcase form input,
 form select {
-  font-size: 20px;
+  text-indent: 15px;
+  font-size: 10px;
   width: 500px;
   max-width: 500px;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 1rem;
+}
+
+input::placeholder {
+  font-size: 20px;
 }
 
 form button {
@@ -129,7 +149,6 @@ form button {
   cursor: pointer;
   margin-top: 20px;
   transition: background-color 0.2s ease-in-out;
-
 }
 
 form button:hover {
@@ -170,4 +189,9 @@ form button:hover {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+}
+
+li {
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }

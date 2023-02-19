@@ -11,44 +11,60 @@
     <title>stpr.ai</title>
   </head>
   <body>
+
+    <!-- Loading screen page -->
     <div id="loading-screen">
       <h2>Generating response...</h2>
     </div>
 
+    <!-- main page  -->
     <main>
-      <section class="showcase">
-        <form id="prompt-form">
-          <h1>What can I help you with today?</h1>
-          <div class="form-control">
-            <input type="text" id="prompt" placeholder="Enter Text" autocomplete="off"/>
+      <div class = "container">
+        <div class = "left-column">
+          <section class="showcase">
+            <form id="prompt-form">
+              <h1>What can I help you with today?</h1>
+              <div class="form-control">
+                <input type="text" id="prompt" placeholder="Ask me anything!" autocomplete="off"/>
+              </div>
+              <!-- size -->
+              <button type="submit" class="btn">Generate</button>
+            </form>
+          </section>
+    
+          <!-- rows of devices -->
+          <div id="device-row">
+            <button id="desktop-button" class="device-button">Desktop</button>
+            <button id="laptop-button" class="device-button">Laptop</button>
+            <button id="phone-button" class="device-button">Phone</button>
+            <button id="other-button" class="device-button">Other</button>
           </div>
-          <!-- size -->
-          <button type="submit" class="btn">Generate</button>
-        </form>
-      </section>
+          
+          <div id="os-row" class="hidden">
+            <button id="windows-button" class="os-button">Windows</button>
+            <button id="mac-button" class="os-button">Mac</button>
+            <button id="ios-button" class="os-button">iOS</button>
+            <button id="android-button" class="os-button">Android</button>
+          </div>
+    
+          
+          
+        </div>
+        <div class = "right-column">
+          <!-- ai response -->
+          <!-- <section class="response">
+            <div class="response-container">
+              <h2 class="msg"></h2>
+              <h3 id="response"></h1>
+            </div>
+          </section> -->
 
-      <!-- new -->
-      <div id="device-row">
-        <button id="desktop-button" class="device-button">Desktop</button>
-        <button id="laptop-button" class="device-button">Laptop</button>
-        <button id="phone-button" class="device-button">Phone</button>
-        <button id="other-button" class="device-button">Other</button>
+          <ol id="stepsList"></ol>
+
+        </div>
       </div>
       
-      <div id="os-row" class="hidden">
-        <button id="windows-button" class="os-button">Windows</button>
-        <button id="mac-button" class="os-button">Mac</button>
-        <button id="ios-button" class="os-button">iOS</button>
-        <button id="android-button" class="os-button">Android</button>
-      </div>
 
-      <!-- ai response -->
-      <section class="response">
-        <div class="response-container">
-          <h2 class="msg"></h2>
-          <h3 id="response"></h1>
-        </div>
-      </section>
     </main>
 
     <div class="spinner"></div>

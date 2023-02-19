@@ -55,12 +55,12 @@ osButtons.forEach(button => {
         button.classList.add("selected");
     });
 });
-
+ 
 function handleSubmit(e) {
     e.preventDefault();
 
-    document.querySelector('.msg').textContent = '';
-    document.querySelector('#response').textContent = '';
+    // document.querySelector('.msg').textContent = '';
+    // document.querySelector('#response').textContent = '';
 
     const prompt = document.querySelector('#prompt').value;
 
@@ -98,8 +98,8 @@ async function generateResponseRequest(prompt, device, osChosen) {
         const data = await response.json();
         const responseData = data.data;
 
-        // Displays data
-        document.querySelector('#response').textContent = responseData;
+        // Displays old data
+        // document.querySelector('#response').textContent = responseData;
 
         // Regex and show steps
 
@@ -110,18 +110,32 @@ async function generateResponseRequest(prompt, device, osChosen) {
         // removeSpinner();
         hideLoadingScreen();
 
+        // Displays data
+        displaySteps(responseData);
+
     } catch (error) {
         document.querySelector('.msg').textContent = error;
     }
 }
 
-function regex(answer) {
+function displaySteps(answer) {
     const pattern = /\d+\.\s+/;
     const stepArray = answer.split(pattern).filter(Boolean);
+    console.log(stepArray);
 
-    const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
+    // const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
 
-    return output;
+    const stepsList = document.getElementById("stepsList");
+
+    for (let i = 0; i < stepArray.length; i++) {
+        if (stepArray[i] !== "\n\n") {
+            let listItem = document.createElement("li");
+            listItem.innerText = stepArray[i];
+            stepsList.appendChild(listItem);
+        }
+    }
+
+    // return output;
 }
 
 function showSpinner() {
@@ -145,7 +159,7 @@ function hideLoadingScreen() {
 // Called when the response is recieved -> shows a list of stuff
 function showResponseScreen() {
     document.querySelector('main').classList.add('hidden');
-
+    document.querySelector('#loading-screen').classList.remove('show');
 }
 
 document.querySelector('#prompt-form').addEventListener('submit', handleSubmit);
