@@ -1,10 +1,11 @@
+let deviceChosen
+let osChosen
+let loadInterval
+
 const desktopButton = document.getElementById("desktop-button");
 const laptopButton = document.getElementById("laptop-button");
 const phoneButton = document.getElementById("phone-button");
 const otherButton = document.getElementById("other-button");
-
-let deviceChosen
-let osChosen
 
 const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 
@@ -131,9 +132,21 @@ function displaySteps(answer) {
             stepsList.appendChild(listItem);
         }
     }
-
-    // return output;
 }
+
+const generatingResponse = document.getElementById('generatingResponse');
+
+function loader(element) {
+    element.textContent = "Generating response";
+    loadInterval = setInterval(() => {
+        element.textContent += ".";
+
+        if (element.textContent === "Generating response....") {
+            element.textContent = "Generating response.";
+        }
+    }, 300)
+}
+
 
 function showSpinner() {
     document.querySelector('.spinner').classList.add('show');
@@ -145,12 +158,15 @@ function removeSpinner() {
 
 function showLoadingScreen() {
     document.querySelector('#loading-screen').classList.add('show');
+    loader(generatingResponse);
     document.querySelector('main').classList.add('hidden');
 }
 
 function hideLoadingScreen() {
     document.querySelector('#loading-screen').classList.remove('show');
     document.querySelector('main').classList.remove('hidden');
+    document.querySelector('#home-animation').classList.add('hide'); //hides home animation after loaded
+    clearInterval(loadInterval);
 }
 
 // Called when the response is recieved -> shows a list of stuff

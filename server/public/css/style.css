@@ -16,7 +16,7 @@ body {
   /* overflow: hidden; */
 }
 
-/* main {
+/* main {d
   width: 50%;
   padding: 0 20px;
   padding-left: 200px;
@@ -175,6 +175,7 @@ form button:hover {
   height: 100%;
   /* background-color: rgba(0, 0, 0, 0.5); */
   display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 999;
@@ -185,6 +186,7 @@ form button:hover {
 }
 
 #loading-screen h2 {
+  margin-top: -60px;
   color: black;
   font-size: 2rem;
   font-weight: bold;
@@ -194,4 +196,12 @@ form button:hover {
 li {
   font-size: 1.2em;
   margin-bottom: 10px;
+}
+
+#home-animation {
+  display: flex;
+}
+
+#home-animation.hide {
+  display: none;
 }
