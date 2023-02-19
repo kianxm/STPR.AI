@@ -9,15 +9,15 @@
 /* Left align everything */
 body {
   display: flex;
-  flex-direction: column;
-  padding-top: 200px;
+  flex-direction: row;
   /* justify-content: center; */
-  align-items: left;
+  align-items: center;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   color: #333;
   background-color: #e0e0e0;
+  margin: 0;
   /* overflow: hidden; */
 }
 
@@ -203,7 +203,6 @@ form button:hover {
   visibility: hidden;
 }
 
-
 .msg {
   font-size: 1.6rem;
   text-align: left;
@@ -220,9 +219,9 @@ form button:hover {
   /* background-color: rgba(0, 0, 0, 0.5); */
   display: none;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
-  z-index: 999;
+  /* z-index: 999; */
 }
 
 #loading-screen.show {
@@ -230,6 +229,7 @@ form button:hover {
 }
 
 #loading-screen h2 {
+  margin-top: -120px;
   color: black;
   font-size: 2rem;
   font-weight: bold;
