@@ -15,7 +15,7 @@ const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         deviceChosen = button.value;
-        // console.log(`${deviceChosen} button pressed`);
+        console.log(`${deviceChosen} button pressed`);
         buttons.forEach(button => {
             button.classList.remove("selected");
         });
@@ -56,13 +56,60 @@ const osButtons = [windowsButton, macButton, iosButton, androidButton];
 osButtons.forEach(button => {
     button.addEventListener("click", function() {
         osChosen = button.value;
-        // console.log(`${osChosen} button pressed`);
+        console.log(`${osChosen} button pressed`);
         osButtons.forEach(button => {
             button.classList.remove("selected");
         });
         button.classList.add("selected");
     });
 });
+
+var h1FontSize = 48;
+var h2FontSize = 24;
+var buttonFontSize = 20;
+var selectDeviceFontSize = 20;
+var selectOSFontSize = 20;
+var inputFontSize = 16;
+var inputPlaceholderSize = 16;
+
+document.getElementById('increase-font').addEventListener('click', function() {
+    h1FontSize += 2;
+    h2FontSize += 2;
+    buttonFontSize += 2;
+    selectDeviceFontSize += 1;
+    selectOSFontSize += 1;
+    inputFontSize += 2;
+    inputPlaceholderSize += 2;
+    document.querySelector('.showcase h1').style.fontSize = h1FontSize + 'px';
+    document.querySelector('.showcase h2').style.fontSize = h2FontSize + 'px';
+    document.querySelectorAll('form button').forEach(function(button) {
+        button.style.fontSize = buttonFontSize + 'px';
+    });
+    document.querySelector('#select-device-label').style.fontSize = selectDeviceFontSize + 'px';
+    document.querySelector('#select-plat-label').style.fontSize = selectOSFontSize + 'px';
+    document.querySelector('#prompt').style.fontSize = inputFontSize + 'px';
+    document.querySelector('#prompt::placeholder').style.fontSize = inputPlaceholderSize + 'px';
+});
+
+document.getElementById('decrease-font').addEventListener('click', function() {
+    h1FontSize -= 2;
+    h2FontSize -= 2;
+    buttonFontSize -= 2;
+    selectDeviceFontSize -= 1;
+    selectOSFontSize -= 1;
+    inputFontSize -= 2;
+    inputPlaceholderSize -= 2;
+    document.querySelector('.showcase h1').style.fontSize = h1FontSize + 'px';
+    document.querySelector('.showcase h2').style.fontSize = h2FontSize + 'px';
+    document.querySelectorAll('form button').forEach(function(button) {
+        button.style.fontSize = buttonFontSize + 'px';
+    });
+    document.querySelector('#select-device-label').style.fontSize = selectDeviceFontSize + 'px';
+    document.querySelector('#select-plat-label').style.fontSize = selectOSFontSize + 'px';
+    document.querySelector('#prompt').style.fontSize = inputFontSize + 'px';
+    document.querySelector('#prompt::placeholder').style.fontSize = inputPlaceholderSize + 'px';
+});
+
  
 function handleSubmit(e) {
     e.preventDefault();

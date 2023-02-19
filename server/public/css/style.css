@@ -4,7 +4,7 @@
   --listNumber: #b30738;
   --backgroudColor: #E7E7E7;
   --buttonNotSelected: #D9D9D9;
-  --buttonSelected: #9D9D9D;
+  --buttonSelected: #3083DB;
 }
 
 body {
@@ -78,25 +78,25 @@ main {
 .showcase form input,
 form select {
   text-indent: 10px;
-  font-size: 10px;
+  /* font-size: 10px; */
   /* width: 500px; */
   /* max-width: 500px; */
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  /* margin-bottom: 1rem; */
 }
 
-input::placeholder {
+#prompt::placeholder {
   font-size: 20px;
 }
 
+/* Generate button */
 form button {
   font-size: 20px;
   padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
-  background: #333;
+  background: #3083DB;
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
@@ -104,7 +104,7 @@ form button {
 }
 
 form button:hover {
-  transform: scale(1.005);
+  transform: scale(1.01);
 }
 
 /* Style the search bar */
@@ -151,6 +151,8 @@ label{
 
 #os-row-section{
   position: center;
+  position: relative;
+  width: 360px;
 }
 
 /* Style the OS buttons */
@@ -162,13 +164,23 @@ label{
   margin-top: 5px;
 }
 
+#computer-row {
+  left: 0;
+  z-index: 9999;
+}
+
+#mobile-row {
+  padding-left: 180px;
+}
+
 #computer-row, #mobile-row {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  top: 0;
+  top: 0.5rem;
   opacity: 1;
-  transition: top 0.2s, opacity 0.2s;
+  transition: top 0.4s, opacity 0.4s;
 }
 
 /* Style device labels */
@@ -206,7 +218,7 @@ label{
 }
 
 .os-button:hover {
-  background-color: var(--buttonNotSelected);
+  background-color: var(--buttonSelected);
   color: black;
 }
 
@@ -214,8 +226,6 @@ label{
   background-color: var(--buttonSelected);
   color: black;
 }
-
-
 
 /* Loading Screen */
 #loading-screen {
@@ -243,20 +253,24 @@ label{
   text-align: center;
 }
 
+/* Steps List */
 ol {
   list-style: none;
   counter-reset: item;
 }
+
 li {
   position: relative;
   font-size: 1.2rem;
   counter-increment: item;
   margin: 1.5rem 0.5rem;
   padding: 1rem;
+  padding-left: 2rem;
   background-color: #eee;
   border-radius: 1rem;
-
+  width: 80%;
 }
+
 li:before {
   top:-0.7rem;
   left:-0.7rem;
@@ -270,7 +284,8 @@ li:before {
   text-align: center;
   display: inline-block;
   font-weight: 600;
-  border: 0.2rem solid var(--listNumber);
+  border: 0.3rem solid var(--listNumber);
+  border-bottom: 0.5rem solid var(--listNumber);
 }
 
 #stepList {
@@ -289,14 +304,30 @@ li:before {
 /* Hidden */
 .hiddenNoVis {
   opacity: 0 !important;
-  top: -2rem !important;
+  top: 2rem !important;
 }
 .hidden {
   opacity: 0 !important;
-  top: -2rem !important;
-  visibility: hidden;
+  top: 2rem !important;
+  /* visibility: hidden; */
 }
 
-.hiddentest {
-  display: none;
+.font-size {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.font-size button {
+  font-size: 36px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.font-size button:hover {
+  background-color: #eee;
 }
