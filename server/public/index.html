@@ -11,12 +11,6 @@
     <title>stpr.ai</title>
   </head>
   <body>
-
-    <!-- Loading screen page -->
-    <div id="loading-screen">
-      <h2>Generating response...</h2>
-    </div>
-
     <!-- main page  -->
     <main>
       <div class = "container">
@@ -34,24 +28,40 @@
     
           <!-- rows of devices -->
           <div id="device-row">
-            <button id="desktop-button" class="device-button">Desktop</button>
-            <button id="laptop-button" class="device-button">Laptop</button>
-            <button id="phone-button" class="device-button">Phone</button>
-            <button id="other-button" class="device-button">Other</button>
+            <button id="desktop-button" value="Desktop" class="device-button">
+              <img src="./assets/desktop.png" width="40">
+            </button>
+            <button id="laptop-button" value="Laptop" class="device-button">
+              <img src="./assets/laptop.png" width="40">
+            </button>
+            <button id="phone-button" value="Phone" class="device-button">
+              <img src="./assets/phone.png" width="40">
+            </button>
+            <button id="other-button" value="Other" class="device-button">
+              <img src="./assets/other.png" width="40">
+            </button>
           </div>
           
-          <div id="os-row" class="hidden">
-            <button id="windows-button" class="os-button">Windows</button>
-            <button id="mac-button" class="os-button">Mac</button>
-            <button id="ios-button" class="os-button">iOS</button>
-            <button id="android-button" class="os-button">Android</button>
-          </div>
-    
-          
+          <section id="os-row-section">
+            <div id="os-row" class="hidden">
+              <button id="windows-button" value="Windows" class="os-button">
+                <img src="./assets/windows.png" width="40">
+              </button>
+              <button id="mac-button" value="macOS" class="os-button">
+                <img src="./assets/ios.png" width="40">
+              </button>
+              <button id="ios-button" value="iOS" class="os-button">
+                <img src="./assets/ios.png" width="40">
+              </button>
+              <button id="android-button" value="Android" class="os-button">
+                <img src="./assets/android.png" width="40">
+              </button>
+            </div>
+          </section>
           
         </div>
         <div class = "right-column">
-          <!-- ai response -->
+          <!-- old ai response -->
           <!-- <section class="response">
             <div class="response-container">
               <h2 class="msg"></h2>
@@ -59,13 +69,17 @@
             </div>
           </section> -->
 
+          <!-- new numbered list of steps -->
           <ol id="stepsList"></ol>
 
         </div>
       </div>
-      
-
     </main>
+
+    <!-- Loading screen page -->
+    <div id="loading-screen">
+      <h2>Generating response...</h2>
+    </div>
 
     <div class="spinner"></div>
   </body>

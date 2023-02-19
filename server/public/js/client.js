@@ -10,7 +10,7 @@ const buttons = [desktopButton, laptopButton, phoneButton, otherButton];
 
 buttons.forEach(button => {
     button.addEventListener("click", function() {
-        deviceChosen = button.textContent;
+        deviceChosen = button.value;
         console.log(`${deviceChosen} button pressed`);
         buttons.forEach(button => {
             button.classList.remove("selected");
@@ -34,6 +34,7 @@ buttons.forEach(button => {
         } else if (deviceChosen === "Other") {
             osRow.classList.add("hidden");
             deviceChosen = "";
+            osChosen = "";
         }
     });
 });
@@ -43,11 +44,11 @@ const macButton = document.getElementById("mac-button");
 const iosButton = document.getElementById("ios-button");
 const androidButton = document.getElementById("android-button");
 
-const osButtons = [windowsButton, macButton, phoneButton, androidButton];
+const osButtons = [windowsButton, macButton, iosButton, androidButton];
 
 osButtons.forEach(button => {
     button.addEventListener("click", function() {
-        osChosen = button.textContent;
+        osChosen = button.value;
         console.log(`${osChosen} button pressed`);
         osButtons.forEach(button => {
             button.classList.remove("selected");
@@ -101,12 +102,6 @@ async function generateResponseRequest(prompt, device, osChosen) {
         // Displays old data
         // document.querySelector('#response').textContent = responseData;
 
-        // Regex and show steps
-
-        // const stepsText = regex(responseData);
-        // const stepsTextArea = document.getElementById('stepsTextArea');
-        // stepsTextArea.value = stepsText
-
         // removeSpinner();
         hideLoadingScreen();
 
@@ -119,14 +114,16 @@ async function generateResponseRequest(prompt, device, osChosen) {
 }
 
 function displaySteps(answer) {
+    //regex
     const pattern = /\d+\.\s+/;
     const stepArray = answer.split(pattern).filter(Boolean);
-    console.log(stepArray);
+    // console.log(stepArray);
 
     // const stepsText = stepArray.map((step, index) => `${index + 1}. ${step}`).join('\n');
 
     const stepsList = document.getElementById("stepsList");
 
+    //creates the ordered list 
     for (let i = 0; i < stepArray.length; i++) {
         if (stepArray[i] !== "\n\n") {
             let listItem = document.createElement("li");
