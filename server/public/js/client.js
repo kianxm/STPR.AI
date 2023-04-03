@@ -165,7 +165,8 @@ async function generateResponseRequest(prompt, device, osChosen) {
         displaySteps(responseData);
 
     } catch (error) {
-        document.querySelector('.msg').textContent = error;
+        // document.querySelector('.msg').textContent = error;
+        alert(error);
     }
 }
 
@@ -188,6 +189,7 @@ function displaySteps(answer) {
             stepsList.appendChild(listItem);
         }
     }
+
 }
 
 const generatingResponse = document.getElementById('generatingResponse');

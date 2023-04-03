@@ -14,7 +14,7 @@ const generateResponse = async (req, res) => {
     try {
         const response = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: `Provide a simple list for: ${prompt} for ${device} ${osChosen} with the max amount of steps being 8.`, // Add device here
+            prompt: `Provide a simple list for: ${prompt} for ${device} ${osChosen}.`, // Add device here
             temperature: 0, 
             max_tokens: 3000,
             top_p: 1.0,
